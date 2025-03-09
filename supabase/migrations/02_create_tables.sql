@@ -1,0 +1,134 @@
+-- Users table (base table for both students and professors)
+create table users (
+    id uuid primary key default uuid_generate_v4(),
+    email text unique not null,
+    phone_number text unique,
+    password_hash text not null,
+    role user_role not null,
+    first_name text not null,
+    last_name text not null,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now(),
+    last_login timestamp with time zone,
+    is_active boolean default true,
+    verification_status verification_status default 'pending'
+);
+
+-- Students profile
+create table student_profiles (
+    id uuid primary key references users(id) on delete cascade,
+    institution text not null,
+    department text not null,
+    matriculation_number text,
+    graduation_year integer,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
+);
+
+-- Professor profiles
+create table professor_profiles (
+    id uuid primary key references users(id) on delete cascade,
+    institution text not null,
+    department text not null,
+    qualification text[],
+    position text not null,
+    specialization text[],
+    rating decimal(3,2),
+    total_references integer default 0,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
+);
+
+-- Documents table (for student uploads)
+create table documents (
+    id uuid primary key default uuid_generate_v4(),
+    user_id uuid references users(id) on delete cascade,
+    document_type text not null,
+    document_url text not null,
+    is_verified boolean default false,
+    uploaded_at timestamp with time zone default now(),
+    verified_at timestamp with time zone,
+    verified_by uuid references users(id)
+);
+
+-- Reference templates
+create table reference_templates (
+    id uuid primary key default uuid_generate_v4(),
+    professor_id uuid references users(id) on delete cascade,
+    template_name text not null,
+    content text not null,
+    is_default boolean default false,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
+);
+
+-- Reference requests
+create table reference_requests (
+    id uuid primary key default uuid_generate_v4(),
+    student_id uuid references users(id) on delete cascade,
+    professor_id uuid references users(id),
+    template_id uuid references reference_templates(id),
+    purpose text not null,
+    additional_notes text,
+    status request_status default 'pending',
+    estimated_completion_date timestamp with time zone,
+    completed_at timestamp with time zone,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
+);
+
+-- Request documents (linking documents to requests)
+create table request_documents (
+    request_id uuid references reference_requests(id) on delete cascade,
+    document_id uuid references documents(id) on delete cascade,
+    primary key (request_id, document_id)
+);
+
+-- Payments
+create table payments (
+    id uuid primary key default uuid_generate_v4(),
+    request_id uuid references reference_requests(id) on delete cascade,
+    amount decimal(10,2) not null,
+    payment_method payment_method not null,
+    status payment_status default 'pending',
+    transaction_reference text unique,
+    professor_share decimal(10,2),
+    platform_share decimal(10,2),
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
+);
+
+-- Messages
+create table messages (
+    id uuid primary key default uuid_generate_v4(),
+    sender_id uuid references users(id) on delete cascade,
+    receiver_id uuid references users(id) on delete cascade,
+    request_id uuid references reference_requests(id) on delete cascade,
+    content text not null,
+    is_read boolean default false,
+    created_at timestamp with time zone default now()
+);
+
+-- Notifications
+create table notifications (
+    id uuid primary key default uuid_generate_v4(),
+    user_id uuid references users(id) on delete cascade,
+    title text not null,
+    content text not null,
+    is_read boolean default false,
+    notification_type text not null,
+    reference_id uuid,
+    created_at timestamp with time zone default now()
+);
+
+-- Professor withdrawals
+create table withdrawals (
+    id uuid primary key default uuid_generate_v4(),
+    professor_id uuid references users(id) on delete cascade,
+    amount decimal(10,2) not null,
+    status payment_status default 'pending',
+    bank_name text not null,
+    account_number text not null,
+    created_at timestamp with time zone default now(),
+    processed_at timestamp with time zone
+); 
