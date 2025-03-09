@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text, Button } from 'react-native-elements';
+import { Text, Icon } from 'react-native-elements';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import RequestsScreen from './tabs/RequestsScreen';
@@ -11,35 +9,26 @@ import TemplatesScreen from './tabs/TemplatesScreen';
 import EarningsScreen from './tabs/EarningsScreen';
 import ProfileScreen from './tabs/ProfileScreen';
 
-type RootStackParamList = {
-  StudentDashboard: undefined;
-  ProfessorDashboard: undefined;
-  AdminDashboard: undefined;
-};
-
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
-
 const Tab = createBottomTabNavigator();
 
+// Import mock data
+const MOCK_PROFESSOR = {
+  firstName: 'John',
+  lastName: 'Smith',
+  institution: 'University of Technology',
+  department: 'Computer Science',
+};
+
 export default function ProfessorDashboard() {
-  const navigation = useNavigation<NavigationProp>();
+  // Get current time of day
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text h3>Professor Dashboard</Text>
-        <View style={styles.headerButtons}>
-          <Button
-            title="Student View"
-            type="clear"
-            onPress={() => navigation.navigate('StudentDashboard')}
-          />
-          <Button
-            title="Admin View"
-            type="clear"
-            onPress={() => navigation.navigate('AdminDashboard')}
-          />
-        </View>
+        <Text h3 style={styles.greeting}>{greeting}, Dr. {MOCK_PROFESSOR.lastName}</Text>
+        <Text style={styles.subtitle}>{MOCK_PROFESSOR.department} • {MOCK_PROFESSOR.institution}</Text>
       </View>
 
       <Tab.Navigator
@@ -98,9 +87,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#e1e1e1',
   },
-  headerButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
+  greeting: {
+    marginBottom: 5,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666',
   },
 }); 
