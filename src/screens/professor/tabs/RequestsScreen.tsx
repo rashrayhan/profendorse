@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { View, StyleSheet, ScrollView, TextInput, Alert } from 'react-native';
-import { Text, Button, ButtonGroup, Icon, Divider } from 'react-native-elements';
+import { Text, Button, ButtonGroup, Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { MOCK_REQUESTS } from '../../../data/mockRequests';
@@ -249,7 +249,7 @@ export default function RequestsScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <View style={styles.searchAndFilters}>
         <View style={styles.searchContainer}>
           <Icon
             name="search"
@@ -313,10 +313,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
-  header: {
+  searchAndFilters: {
     backgroundColor: '#fff',
     paddingHorizontal: 10,
-    paddingBottom: 10,
+    paddingVertical: 10,
   },
   searchContainer: {
     flexDirection: 'row',
@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
     paddingHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 5,
   },
   searchIcon: {
     marginRight: 10,

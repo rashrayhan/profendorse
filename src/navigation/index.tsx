@@ -60,27 +60,35 @@ export default function Navigation() {
         <Stack.Screen
           name="StudentDashboard"
           component={StudentDashboard}
-          options={{ title: 'Student Dashboard' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="ProfessorDashboard"
           component={ProfessorDashboard}
-          options={{ title: 'Professor Dashboard' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboard}
-          options={{ title: 'Admin Dashboard' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="RequestDetails"
           component={RequestDetailsScreen}
-          options={{ title: 'Reference Request' }}
+          options={{ 
+            headerShown: true,
+            title: 'Reference Request',
+            headerBackTitle: 'Back'
+          }}
         />
         <Stack.Screen
           name="ReferenceRequest"
           component={ReferenceRequestScreen}
-          options={{ title: 'New Reference Request' }}
+          options={{ 
+            headerShown: true,
+            title: 'New Reference Request',
+            headerBackTitle: 'Back'
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

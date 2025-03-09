@@ -112,19 +112,6 @@ export default function RequestCard({ request, onPress, onAccept, onReject }: Re
       {isPending && (
         <View style={styles.actions}>
           <Button
-            title="Accept"
-            type="solid"
-            buttonStyle={[styles.actionButton, styles.acceptButton]}
-            titleStyle={styles.actionButtonTitle}
-            onPress={handleAccept}
-            icon={{
-              name: 'check',
-              type: 'feather',
-              size: 15,
-              color: '#fff',
-            }}
-          />
-          <Button
             title="Reject"
             type="solid"
             buttonStyle={[styles.actionButton, styles.rejectButton]}
@@ -132,6 +119,19 @@ export default function RequestCard({ request, onPress, onAccept, onReject }: Re
             onPress={handleReject}
             icon={{
               name: 'x',
+              type: 'feather',
+              size: 15,
+              color: '#fff',
+            }}
+          />
+          <Button
+            title="Accept"
+            type="solid"
+            buttonStyle={[styles.actionButton, styles.acceptButton]}
+            titleStyle={styles.actionButtonTitle}
+            onPress={handleAccept}
+            icon={{
+              name: 'check',
               type: 'feather',
               size: 15,
               color: '#fff',
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     marginTop: 15,
     paddingTop: 15,
     borderTopWidth: 1,
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   actionButton: {
     paddingHorizontal: 20,
     paddingVertical: 8,
-    marginRight: 10,
+    marginLeft: 10,
     borderRadius: 5,
   },
   actionButtonTitle: {

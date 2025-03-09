@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text, Icon } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -13,22 +13,15 @@ const Tab = createBottomTabNavigator();
 
 // Import mock data
 const MOCK_PROFESSOR = {
+  rank: 'Professor',
   firstName: 'John',
-  lastName: 'Smith',
-  institution: 'University of Technology',
-  department: 'Computer Science',
 };
 
 export default function ProfessorDashboard() {
-  // Get current time of day
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text h3 style={styles.greeting}>{greeting}, Dr. {MOCK_PROFESSOR.lastName}</Text>
-        <Text style={styles.subtitle}>{MOCK_PROFESSOR.department} • {MOCK_PROFESSOR.institution}</Text>
+        <Text style={styles.greeting}>Hi, {MOCK_PROFESSOR.rank} {MOCK_PROFESSOR.firstName}</Text>
       </View>
 
       <Tab.Navigator
@@ -64,7 +57,7 @@ export default function ProfessorDashboard() {
           name="Requests" 
           component={RequestsScreen}
           options={{
-            tabBarBadge: 3, // We'll make this dynamic later
+            tabBarBadge: 3,
           }}
         />
         <Tab.Screen name="Templates" component={TemplatesScreen} />
@@ -81,17 +74,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    padding: 20,
+    padding: 15,
     paddingTop: 60,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#e1e1e1',
   },
   greeting: {
-    marginBottom: 5,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#2c3e50',
   },
 }); 

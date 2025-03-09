@@ -382,5 +382,310 @@ export const MOCK_REQUESTS: ReferenceRequest[] = [
     ],
     referenceType: 'academic',
     isUrgent: false,
+  },
+  {
+    id: '6',
+    student: {
+      id: 'std6',
+      firstName: 'Sarah',
+      lastName: 'Chen',
+      email: 'sarah.chen@university.edu',
+      institution: 'University of Technology',
+      department: 'Data Science',
+      program: 'MSc Data Science',
+      yearOfStudy: '2',
+      documents: [
+        {
+          id: 'doc6',
+          name: 'Research Proposal',
+          type: 'pdf',
+          url: 'https://example.com/proposal.pdf',
+          uploadedAt: '2024-03-20',
+        }
+      ],
+    },
+    coursesWithProfessor: [
+      {
+        courseCode: 'DS501',
+        courseName: 'Advanced Data Mining',
+        termTaken: 'Fall 2023',
+        grade: 'A',
+        achievements: ['Developed novel clustering algorithm', 'Best project award'],
+        projectWork: 'Big data analysis for healthcare'
+      },
+      {
+        courseCode: 'DS502',
+        courseName: 'Neural Networks',
+        termTaken: 'Spring 2024',
+        grade: 'A',
+        achievements: ['Published research paper', 'Conference presentation'],
+        projectWork: 'Deep learning for medical imaging'
+      }
+    ],
+    academicPerformance: {
+      gpa: '4.0',
+      academicHonors: ['Graduate Research Excellence Award', 'Department Scholarship'],
+      researchExperience: 'Lead Researcher in AI Healthcare Lab',
+      publications: ['Neural Networks in Healthcare, IEEE 2024'],
+      presentations: ['AI in Medicine Conference 2024']
+    },
+    relationshipDuration: '2 years',
+    interactionContext: ['Research Lab', 'Classroom', 'Conference'],
+    strengthsAndQualities: ['Research Excellence', 'Innovation', 'Technical Skills', 'Leadership'],
+    reasonForRequest: 'Applying for research position at Google AI Health',
+    status: 'pending',
+    purpose: 'job_application',
+    requestDate: '2024-03-20',
+    dueDate: '2024-04-10',
+    additionalNotes: 'Position focuses on AI applications in healthcare',
+    documents: [],
+    history: [
+      {
+        id: 'hist11',
+        status: 'pending',
+        timestamp: '2024-03-20T10:00:00Z',
+        updatedBy: 'system',
+      }
+    ],
+    referenceType: 'academic',
+    isUrgent: true,
+  },
+  {
+    id: '7',
+    student: {
+      id: 'std7',
+      firstName: 'David',
+      lastName: 'Park',
+      email: 'david.park@university.edu',
+      institution: 'University of Technology',
+      department: 'Computer Science',
+      program: 'BSc Computer Science',
+      yearOfStudy: '3',
+      documents: [],
+    },
+    coursesWithProfessor: [
+      {
+        courseCode: 'CS301',
+        courseName: 'Operating Systems',
+        termTaken: 'Fall 2023',
+        grade: 'A-',
+        achievements: ['Kernel modification project', 'System optimization'],
+        projectWork: 'Developed custom scheduler'
+      }
+    ],
+    academicPerformance: {
+      gpa: '3.7',
+      academicHonors: ['Merit Scholarship'],
+      researchExperience: 'Systems Lab Assistant',
+      publications: [],
+      presentations: ['Systems Workshop 2024']
+    },
+    relationshipDuration: '1 year',
+    interactionContext: ['Classroom', 'Lab Sessions'],
+    strengthsAndQualities: ['Technical Skills', 'Problem Solving', 'Team Work'],
+    reasonForRequest: 'Summer internship at Microsoft',
+    status: 'pending',
+    purpose: 'internship',
+    requestDate: '2024-03-19',
+    dueDate: '2024-04-05',
+    additionalNotes: 'Internship in Windows Kernel team',
+    documents: [],
+    history: [
+      {
+        id: 'hist12',
+        status: 'pending',
+        timestamp: '2024-03-19T15:30:00Z',
+        updatedBy: 'system',
+      }
+    ],
+    referenceType: 'academic',
+    isUrgent: true,
+  },
+  {
+    id: '8',
+    student: {
+      id: 'std8',
+      firstName: 'Emma',
+      lastName: 'Garcia',
+      email: 'emma.garcia@university.edu',
+      institution: 'University of Technology',
+      department: 'Computer Science',
+      program: 'PhD Computer Science',
+      yearOfStudy: '2',
+      documents: [],
+    },
+    coursesWithProfessor: [
+      {
+        courseCode: 'CS701',
+        courseName: 'Advanced AI',
+        termTaken: 'Fall 2023',
+        grade: 'A',
+        achievements: ['Research publication', 'Conference presentation'],
+        projectWork: 'Reinforcement learning research'
+      }
+    ],
+    academicPerformance: {
+      gpa: '3.95',
+      academicHonors: ['PhD Fellowship', 'Research Grant'],
+      researchExperience: 'AI Lab Researcher',
+      publications: ['Reinforcement Learning Advances, NeurIPS 2023'],
+      presentations: ['AI Conference 2024']
+    },
+    relationshipDuration: '2 years',
+    interactionContext: ['Research', 'Teaching Assistant'],
+    strengthsAndQualities: ['Research', 'Teaching', 'Leadership'],
+    reasonForRequest: 'Research grant application',
+    status: 'in_progress',
+    purpose: 'research_position',
+    requestDate: '2024-03-18',
+    dueDate: '2024-04-15',
+    additionalNotes: 'NSF Research Grant Application',
+    documents: [],
+    history: [
+      {
+        id: 'hist13',
+        status: 'pending',
+        timestamp: '2024-03-18T09:00:00Z',
+        updatedBy: 'system',
+      },
+      {
+        id: 'hist14',
+        status: 'in_progress',
+        timestamp: '2024-03-19T14:00:00Z',
+        updatedBy: 'prof1',
+      }
+    ],
+    referenceType: 'academic',
+    isUrgent: false,
+  },
+  {
+    id: '9',
+    student: {
+      id: 'std9',
+      firstName: 'Ryan',
+      lastName: 'Murphy',
+      email: 'ryan.murphy@university.edu',
+      institution: 'University of Technology',
+      department: 'Computer Science',
+      program: 'MSc Computer Science',
+      yearOfStudy: '1',
+      documents: [],
+    },
+    coursesWithProfessor: [
+      {
+        courseCode: 'CS601',
+        courseName: 'Cloud Computing',
+        termTaken: 'Fall 2023',
+        grade: 'B+',
+        achievements: ['AWS certification', 'Cloud deployment project'],
+        projectWork: 'Serverless architecture implementation'
+      }
+    ],
+    academicPerformance: {
+      gpa: '3.5',
+      academicHonors: [],
+      researchExperience: 'Cloud Computing Lab',
+      publications: [],
+      presentations: []
+    },
+    relationshipDuration: '6 months',
+    interactionContext: ['Classroom'],
+    strengthsAndQualities: ['Technical Skills', 'Cloud Expertise'],
+    reasonForRequest: 'Job application at Amazon AWS',
+    status: 'rejected',
+    purpose: 'job_application',
+    requestDate: '2024-03-15',
+    dueDate: '2024-03-30',
+    additionalNotes: 'Position in AWS development team',
+    documents: [],
+    history: [
+      {
+        id: 'hist15',
+        status: 'pending',
+        timestamp: '2024-03-15T11:00:00Z',
+        updatedBy: 'system',
+      },
+      {
+        id: 'hist16',
+        status: 'rejected',
+        timestamp: '2024-03-16T09:00:00Z',
+        updatedBy: 'prof1',
+        note: 'Insufficient interaction time and course performance'
+      }
+    ],
+    referenceType: 'professional',
+    isUrgent: true,
+  },
+  {
+    id: '10',
+    student: {
+      id: 'std10',
+      firstName: 'Olivia',
+      lastName: 'Taylor',
+      email: 'olivia.taylor@university.edu',
+      institution: 'University of Technology',
+      department: 'Computer Science',
+      program: 'MSc Computer Science',
+      yearOfStudy: '2',
+      documents: [
+        {
+          id: 'doc7',
+          name: 'Project Portfolio',
+          type: 'pdf',
+          url: 'https://example.com/portfolio.pdf',
+          uploadedAt: '2024-03-17',
+        }
+      ],
+    },
+    coursesWithProfessor: [
+      {
+        courseCode: 'CS550',
+        courseName: 'Computer Graphics',
+        termTaken: 'Fall 2023',
+        grade: 'A',
+        achievements: ['3D rendering engine', 'Graphics optimization'],
+        projectWork: 'Real-time ray tracing implementation'
+      }
+    ],
+    academicPerformance: {
+      gpa: '3.85',
+      academicHonors: ['Graphics Lab Excellence Award'],
+      researchExperience: 'Graphics and Visualization Lab',
+      publications: ['Real-time Rendering Techniques, SIGGRAPH 2024'],
+      presentations: ['Graphics Symposium 2024']
+    },
+    relationshipDuration: '1.5 years',
+    interactionContext: ['Research Lab', 'Classroom'],
+    strengthsAndQualities: ['Technical Innovation', 'Research Skills', 'Problem Solving'],
+    reasonForRequest: 'PhD application to MIT',
+    status: 'completed',
+    purpose: 'graduate_school',
+    requestDate: '2024-03-17',
+    dueDate: '2024-04-01',
+    additionalNotes: 'Applying to MIT Graphics Lab',
+    documents: [],
+    history: [
+      {
+        id: 'hist17',
+        status: 'pending',
+        timestamp: '2024-03-17T10:00:00Z',
+        updatedBy: 'system',
+      },
+      {
+        id: 'hist18',
+        status: 'in_progress',
+        timestamp: '2024-03-18T09:00:00Z',
+        updatedBy: 'prof1',
+      },
+      {
+        id: 'hist19',
+        status: 'completed',
+        timestamp: '2024-03-19T16:00:00Z',
+        updatedBy: 'prof1',
+        note: 'Strong letter of recommendation submitted'
+      }
+    ],
+    referenceType: 'academic',
+    isUrgent: false,
   }
 ]; 
