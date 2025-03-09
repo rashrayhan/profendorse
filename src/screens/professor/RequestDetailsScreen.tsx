@@ -281,21 +281,7 @@ export default function RequestDetailsScreen() {
         {isPending && (
           <View style={styles.fixedActions}>
             <Button
-              title="Accept Request"
-              icon={{
-                name: 'check',
-                type: 'feather',
-                size: 20,
-                color: '#fff',
-              }}
-              buttonStyle={[styles.actionButton, styles.acceptButton]}
-              onPress={() => {
-                onAccept?.(request);
-                navigation.goBack();
-              }}
-            />
-            <Button
-              title="Reject Request"
+              title="Reject"
               icon={{
                 name: 'x',
                 type: 'feather',
@@ -305,6 +291,20 @@ export default function RequestDetailsScreen() {
               buttonStyle={[styles.actionButton, styles.rejectButton]}
               onPress={() => {
                 onReject?.(request);
+                navigation.goBack();
+              }}
+            />
+            <Button
+              title="Accept"
+              icon={{
+                name: 'check',
+                type: 'feather',
+                size: 20,
+                color: '#fff',
+              }}
+              buttonStyle={[styles.actionButton, styles.acceptButton]}
+              onPress={() => {
+                onAccept?.(request);
                 navigation.goBack();
               }}
             />
