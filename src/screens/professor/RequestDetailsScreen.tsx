@@ -35,25 +35,7 @@ export default function RequestDetailsScreen() {
   const isPending = request?.status === 'pending';
   const isInProgress = request?.status === 'in_progress';
 
-  useEffect(() => {
-    navigation.setOptions({
-      headerShown: true,
-      headerTitle: 'Reference Request',
-      headerTitleStyle: styles.headerTitle,
-      headerLeft: () => (
-        <Icon
-          name="arrow-left"
-          type="feather"
-          size={24}
-          color="#000"
-          containerStyle={styles.headerIcon}
-          onPress={() => navigation.goBack()}
-        />
-      ),
-      headerStyle: styles.headerStyle,
-      headerShadowVisible: false,
-    });
-  }, [navigation]);
+
 
   if (!request) {
     return (

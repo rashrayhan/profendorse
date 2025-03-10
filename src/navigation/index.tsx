@@ -2,6 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import { Icon } from 'react-native-elements';
 
 import ModeSelectionScreen from '../screens/ModeSelectionScreen';
 import StudentDashboard from '../screens/student/Dashboard';
@@ -75,11 +76,24 @@ export default function Navigation() {
         <Stack.Screen
           name="RequestDetails"
           component={RequestDetailsScreen}
-          options={{ 
+          options={({ navigation }) => ({ 
             headerShown: true,
             title: 'Reference Request',
-            headerBackTitle: 'Back'
-          }}
+            headerBackVisible: false,
+            headerLeft: () => (
+              <Icon
+                name="arrow-left"
+                type="feather"
+                size={24}
+                color="#000"
+                containerStyle={{ 
+                  padding: 10,
+                  marginLeft: -8
+                }}
+                onPress={() => navigation.goBack()}
+              />
+            )
+          })}
         />
         <Stack.Screen
           name="ReferenceRequest"

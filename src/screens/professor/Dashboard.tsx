@@ -20,9 +20,6 @@ const MOCK_PROFESSOR = {
 export default function ProfessorDashboard() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.greeting}>Hi, {MOCK_PROFESSOR.rank} {MOCK_PROFESSOR.firstName}</Text>
-      </View>
 
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -72,17 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  header: {
-    padding: 15,
     paddingTop: 60,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e1e1e1',
   },
-  greeting: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#2c3e50',
-  },
+  
 }); 
